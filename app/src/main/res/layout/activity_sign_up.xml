@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SignUpActivity"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SokoGarden - Sign Up"
+        android:textSize="32sp"
+        android:textAlignment="center"
+        android:textStyle="bold|italic"
+        android:background="@drawable/shape"
+        android:padding="12dp"
+        android:textColor="#FFFFFF" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Username"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"/>
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:inputType="textPassword"/>
+
+    <Button
+        android:id="@+id/signupBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:layout_marginTop="20dp"/>
+</LinearLayout>
