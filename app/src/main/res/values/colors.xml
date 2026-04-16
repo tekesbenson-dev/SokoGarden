@@ -2,4 +2,19 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Sign In Colors -->
+    <color name="banner_green">#2E7D32</color>
+    <color name="input_pink_light">#F8BBD0</color>
+    <color name="button_navy">#0D47A1</color>
+
+    <!-- Sign Up Colors (Different) -->
+    <color name="banner_purple">#6A1B9A</color>
+    <color name="input_blue_light">#B3E5FC</color>
+    <color name="button_teal">#00796B</color>
+
+    <!-- Shared -->
+    <color name="main_bg">#F5F5F5</color>
+    <color name="card_white">#FFFFFF</color>
+    <color name="text_black">#000000</color>
 </resources>

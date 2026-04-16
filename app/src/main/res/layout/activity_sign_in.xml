@@ -1,42 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".SignInActivity"
-    android:padding="20dp">
+    android:background="@color/main_bg"
+    tools:context=".SignInActivity">
 
-    <TextView
+    <!-- Green Header with Rounded Bottom -->
+    <RelativeLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@drawable/header_bg"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/headerTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="* Signin *"
+            android:textColor="@color/white"
+            android:textSize="42sp"
+            android:fontFamily="serif"
+            android:textStyle="italic" />
+    </RelativeLayout>
+
+    <!-- Content Area -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/contentCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SokoGarden - Sign In"
-        android:textSize="32sp"
-        android:textAlignment="center"
-        android:textStyle="bold|italic"
-        android:background="@drawable/shape"
-        android:padding="12dp"
-        android:textColor="#FFFFFF" />
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="-40dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@color/card_white">
 
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Email"
-        android:layout_marginTop="20dp"/>
+        <LinearLayout
+            android:id="@+id/formContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
 
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Password"
-        android:inputType="textPassword"/>
+            <!-- Email Input -->
+            <LinearLayout
+                android:id="@+id/emailInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/input_bg"
+                android:padding="12dp"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
 
-    <Button
-        android:id="@+id/signinBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Sign In"
-        android:layout_marginTop="20dp"/>
+                <ImageView
+                    android:id="@+id/emailIcon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_email"
+                    app:tint="@color/button_navy"
+                    android:contentDescription="Email Icon" />
+
+                <EditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Email Address"
+                    android:textColor="@color/text_black"
+                    android:textColorHint="#616161"
+                    android:background="@android:color/transparent"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:textSize="16sp"
+                    android:inputType="textEmailAddress"
+                    android:autofillHints="emailAddress"/>
+            </LinearLayout>
+
+            <!-- Password Input -->
+            <LinearLayout
+                android:id="@+id/passwordInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/input_bg"
+                android:padding="12dp"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="24dp">
+
+                <ImageView
+                    android:id="@+id/lockIcon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_lock"
+                    app:tint="@color/button_navy"
+                    android:contentDescription="Lock Icon" />
+
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Your Password"
+                    android:textColor="@color/text_black"
+                    android:textColorHint="#616161"
+                    android:background="@android:color/transparent"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:textSize="16sp"
+                    android:inputType="textPassword"
+                    android:autofillHints="password"/>
+            </LinearLayout>
+
+            <!-- Sign In Button -->
+            <Button
+                android:id="@+id/signinBtn"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="SIGNIN"
+                android:backgroundTint="@color/button_navy"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cornerRadius="8dp" />
+
+            <!-- Sign Up Link -->
+            <TextView
+                android:id="@+id/goToSignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dont Have an Account? Signup"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/text_black"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
 </LinearLayout>

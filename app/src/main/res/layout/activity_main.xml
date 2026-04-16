@@ -1,27 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#7FFFD4"
+    android:background="#F5F5F5"
     android:padding="12dp">
 
     <TextView
+        android:id="@+id/titleText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="SokoGarden"
         android:textSize="36sp"
-        android:textAlignment="center"
+        android:gravity="center"
         android:textStyle="bold|italic"
         android:background="@drawable/shape"
         android:textColor="#FFFFFF" />
 
-    <!-- Buttons aligned horizontally -->
+    <TextView
+        android:id="@+id/welcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome"
+        android:textSize="24sp"
+        android:textColor="@color/banner_green"
+        android:visibility="gone"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"/>
+
+    <!-- Auth Buttons Container -->
     <LinearLayout
+        android:id="@+id/buttonsContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center"
+        android:layout_marginTop="10dp">
 
         <Button
             android:id="@+id/btnSignUp"
@@ -30,11 +47,9 @@
             android:text="Signup"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:backgroundTint="#135F00"
-            android:padding="12dp"
-            android:layout_margin="10dp"
-            android:elevation="8dp" />
+            android:layout_margin="5dp" />
 
         <Button
             android:id="@+id/btnSignIn"
@@ -43,12 +58,37 @@
             android:text="Sign In"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:backgroundTint="#1E88E5"
-            android:padding="12dp"
-            android:layout_margin="10dp"
-            android:elevation="8dp" />
-
+            android:layout_margin="5dp" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/logoutBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="#ED0909"
+        android:textColor="#F2F2F2"
+        android:visibility="gone"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:layout_marginTop="20dp"/>
+
+    <!-- RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="10dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 </LinearLayout>
