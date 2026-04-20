@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F1F8E9"
+    android:gravity="center_horizontal">
+
+    <!-- Green Header -->
+    <RelativeLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@drawable/header_bg"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/headerTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="* About SokoGarden *"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            android:fontFamily="serif"
+            android:textStyle="italic|bold" />
+    </RelativeLayout>
+
+    <!-- Content Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/contentCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="-40dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="12dp"
+        app:cardBackgroundColor="@color/card_white">
+
+        <LinearLayout
+            android:id="@+id/formContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:id="@+id/aboutLogo"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/sokogarden"
+                android:contentDescription="SokoGarden Logo"
+                android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:id="@+id/versionText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SokoGarden Version 1.0"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textColor="@color/banner_green"
+                android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:id="@+id/aboutTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SokoGarden is your one-stop digital marketplace for fresh, high-quality agricultural products directly from the garden. Our mission is to connect farmers with consumers, ensuring you get the freshest produce at the best prices."
+                android:textSize="16sp"
+                android:textAlignment="center"
+                android:textColor="@color/text_black"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="20dp"/>
+
+            <Button
+                android:id="@+id/speakListen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Listen to About"
+                app:icon="@drawable/ic_info"
+                android:backgroundTint="@color/banner_green"
+                android:textColor="@color/white"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:id="@+id/contactText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Contact Us: support@sokogarden.com\nLocation: Nairobi, Kenya"
+                android:textSize="14sp"
+                android:textAlignment="center"
+                android:textColor="#757575"
+                android:textStyle="italic"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back to Home"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/button_navy"
+        android:textColor="@color/white"
+        app:cornerRadius="12dp"/>
+
+</LinearLayout>

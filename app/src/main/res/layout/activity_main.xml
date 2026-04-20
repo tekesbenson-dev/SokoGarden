@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F5F5F5"
+    android:background="#F1F8E9"
     android:padding="12dp">
 
+    <!-- App Title -->
     <TextView
         android:id="@+id/titleText"
         android:layout_width="match_parent"
@@ -18,69 +19,94 @@
         android:gravity="center"
         android:textStyle="bold|italic"
         android:background="@drawable/shape"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        android:padding="10dp" />
 
+    <!-- Welcome Message -->
     <TextView
         android:id="@+id/welcomeText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Welcome"
-        android:textSize="24sp"
+        android:text="Welcome User"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
         android:textColor="@color/banner_green"
         android:visibility="gone"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="16dp"/>
 
-    <!-- Auth Buttons Container -->
+    <!-- Authentication Buttons -->
     <LinearLayout
         android:id="@+id/buttonsContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="16dp">
 
         <Button
             android:id="@+id/btnSignUp"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Signup"
+            android:backgroundTint="@color/banner_purple"
             android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:textSize="14sp"
-            android:backgroundTint="#135F00"
-            android:layout_margin="5dp" />
+            android:layout_margin="5dp"
+            app:icon="@drawable/ic_person" />
 
         <Button
             android:id="@+id/btnSignIn"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Sign In"
+            android:backgroundTint="@color/banner_green"
             android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:textSize="14sp"
-            android:backgroundTint="#1E88E5"
-            android:layout_margin="5dp" />
+            android:layout_margin="5dp"
+            app:icon="@drawable/ic_lock" />
     </LinearLayout>
 
+    <Button
+        android:id="@+id/aboutBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="About"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="@color/button_navy"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="8dp"
+        app:icon="@drawable/ic_info" />
+
+    <!-- Logout Button -->
     <Button
         android:id="@+id/logoutBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Logout"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="5dp"
-        android:backgroundTint="#ED0909"
-        android:textColor="#F2F2F2"
-        android:visibility="gone"/>
+        android:backgroundTint="#D32F2F"
+        android:textColor="#FFFFFF"
+        android:visibility="gone"
+        android:layout_marginTop="8dp"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Our Fresh Products"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_black"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Loading Indicator -->
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:visibility="gone"
-        android:layout_marginTop="20dp"/>
+        android:visibility="gone" />
 
     <!-- RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
@@ -89,6 +115,8 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_marginTop="10dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        tools:listitem="@layout/single_item" />
 
 </LinearLayout>

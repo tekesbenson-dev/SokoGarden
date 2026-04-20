@@ -34,6 +34,14 @@ class MainActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.recyclerView)
         progressBar = findViewById(R.id.progressBar)
 
+        // find the About button by use of its ID and have the intent
+        val aboutButton = findViewById<Button>(R.id.aboutBtn)
+        //below is the intent to the About activity
+        aboutButton.setOnClickListener {
+            val intent = Intent(applicationContext, AboutActivity::class.java)
+            startActivity(intent)
+        }
+
         // Setup RecyclerView
         productAdapter = ProductAdapter(emptyList())
         recyclerView.adapter = productAdapter
@@ -79,8 +87,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun fetchProducts() {
         val apiHelper = ApiHelper(this)
-        // Updated URL
-        val url = "https://bensontekes.alwaysdata.net/api/get_products"
+        val url = "https://kbenkamotho.alwaysdata.net/api/get_products" 
         
         progressBar.visibility = View.VISIBLE
         
@@ -88,7 +95,6 @@ class MainActivity : AppCompatActivity() {
             override fun onSuccess(result: JSONArray?) {
                 progressBar.visibility = View.GONE
                 result?.let {
-                    // Use the helper function from ProductAdapter to parse the list
                     val productList = ProductAdapter.fromJsonArray(it)
                     productAdapter.updateList(productList)
                 }

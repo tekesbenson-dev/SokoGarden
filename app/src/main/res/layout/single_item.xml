@@ -58,6 +58,17 @@
                 android:maxLines="2"
                 android:ellipsize="end" />
 
+            <Button
+                android:id="@+id/btnPurchase"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Purchase"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="@color/button_navy"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                app:cornerRadius="8dp"/>
+
         </LinearLayout>
     </LinearLayout>
 

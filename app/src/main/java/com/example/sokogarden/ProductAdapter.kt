@@ -1,8 +1,10 @@
 package com.example.sokogarden
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -17,31 +19,39 @@ class ProductAdapter(private var productList: List<Product>) :
         val txtDesc: TextView = itemView.findViewById(R.id.product_description)
         val txtPrice: TextView = itemView.findViewById(R.id.product_cost)
         val imgProduct: ImageView = itemView.findViewById(R.id.product_photo)
+        val btnPurchase: Button = itemView.findViewById(R.id.btnPurchase)
     }
 
-    //Access the Layout - Single Item
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.single_item, parent, false)
         return ProductViewHolder(view)
     }
 
-    //Access Views in Single Item XML and Bind Data
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val product = productList[position]
         holder.txtName.text = product.product_name
         holder.txtDesc.text = product.product_description ?: "No description"
         holder.txtPrice.text = "Ksh ${product.product_cost}"
         
-        // Updated Base URL for images to match your new server
-        val imageUrl = "https://bensontekes.alwaysdata.net/api/static/images/${product.product_photo}"
+        val imageUrl = "https://kbenkamotho.alwaysdata.net/api/static/images/${product.product_photo}"
 
-        //Load image using Glide
         Glide.with(holder.itemView.context)
             .load(imageUrl)
             .placeholder(R.drawable.ic_launcher_background)
-            .error(R.drawable.ic_launcher_foreground) // Show something if load fails
+            .error(R.drawable.ic_launcher_foreground)
             .into(holder.imgProduct)
+
+        // Navigate to PaymentActivity
+        holder.btnPurchase.setOnClickListener {
+            val context = holder.itemView.context
+            val intent = Intent(context, PaymentActivity::class.java).apply {
+                putExtra("product_name", product.product_name)
+                putExtra("product_cost", product.product_cost)
+                putExtra("product_photo", product.product_photo) // Passing the photo filename
+            }
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int = productList.size
@@ -51,7 +61,6 @@ class ProductAdapter(private var productList: List<Product>) :
         notifyDataSetChanged()
     }
 
-    //Return all products Details as a LIST
     companion object {
         fun fromJsonArray(jsonArray: JSONArray): List<Product> {
             val list = mutableListOf<Product>()
